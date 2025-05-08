@@ -1,0 +1,14 @@
+{
+  "name": "BlackBoxML (Podman)",
+  "image": "python:3.11-alpine",
+  "forwardPorts": [5000],
+  "runArgs": ["--runtime=podman"],  // Critical for Podman
+  "postCreateCommand": "pip install --user -r ../requirements.txt",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+  "workspaceFolder": "/workspace",
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python"]
+    }
+  }
+}
